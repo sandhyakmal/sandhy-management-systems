@@ -1,0 +1,60 @@
+<div class="card">
+    <h5 class="card-header" *ngIf="!product.id">New Product</h5>
+    <h5 class="card-header" *ngIf="product.id">Edit Prdouct</h5>
+
+    <ul *ngIf="product && isDeleted"  class="list-group list-group-flush">
+        <li class="list-group-item">Anda yakin menghapus Data? <strong>{{ product.title }}</strong></li>
+        <li class="list-group-item">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button (click)="onDelete()" class="btn btn-primary">Yes</button>
+                <button (click)="isDeleted = false" class="btn btn-danger">No</button>
+            </div>            
+        </li>
+    </ul>
+
+    <ul *ngIf="product && !isDeleted" class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="mb-3">
+                <label class="form-label">Title</label>
+                <input [(ngModel)]="product.title" type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <textarea [(ngModel)]="product.description" type="text" class="form-control" > </textarea>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input [(ngModel)]="product.price" min="0" type="number" class="form-control" />
+            </div>
+        </li>
+        
+        <li (click)="showToggle()" *ngIf="!showMore" class="list-group-item">More ...</li>
+        <li (click)="showToggle()" *ngIf="showMore" class="list-group-item">Hide ...</li>
+
+        <li *ngIf="showMore" class="list-group-item">
+            <div class="mb-3">
+                <label class="form-label">Discount</label>
+                <input  [(ngModel)]="product.discountPercentage"min="0" type="number" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Stock</label>
+                <input [(ngModel)]="product.stock"  min="0" type="number" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+                <input [(ngModel)]="product.brand" type="text" class="form-control" />
+            </div>
+        </li>
+            <ngb-toast *ngIf="showToast" header="Hello" [autohide]="false" (hidden)="showToast">
+                I am a simple static toast with a header.
+            </ngb-toast>
+        <li class="list-group-item">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button (click)="onCreate()" *ngIf="!product.id" class="btn btn-primary">Save</button>
+                <button (click)="onUpdate()" *ngIf="product.id" class="btn btn-info">Edit</button>
+                <button (click)="isDeleted = true" *ngIf="product.id" class="btn btn-danger">Delete</button>
+                <button (click)="cancel()" *ngIf="product.id" class="btn btn-warning">Cancel</button>
+            </div>
+        </li>
+    </ul>
+</div>
