@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { IProduct, IProductWrapper } from 'src/app/interfaces/i-product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -9,6 +10,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
+  dtOptions: DataTables.Settings = {};
+  
   products: Array<IProduct> = [];
   product: IProduct = {} as IProduct;
   showMore: boolean = false;

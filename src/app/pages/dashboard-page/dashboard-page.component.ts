@@ -16,7 +16,7 @@ export class DashboardPageComponent implements OnInit {
     {
       "title":"User Management",
       "image":"https://picsum.photos/200/100?random=1",
-      "link":"",
+      "link":"/user",
     },
     {
       "title":"Sales Management",

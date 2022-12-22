@@ -14,26 +14,28 @@
             </div>
             <div *ngIf="products.length > 0" class="card">
                 <h5 class="card-header">Product List</h5>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Discount</th>
-                            <th>Stock</th>
-                            <th>Brand</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let p of products" (click)="showDetail(p)">
-                            <td>{{ p.title }}</td>
-                            <td>{{ p.price | currency }}</td>
-                            <td>{{ p.discountPercentage | percent }}</td>
-                            <td>{{ p.stock }}</td>
-                            <td>{{ p.brand }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="card-body">
+                    <table datatable [dtOptions]="dtOptions" class="table table-striped" >
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Price</th>
+                                <th>Discount</th>
+                                <th>Stock</th>
+                                <th>Brand</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let p of products" (click)="showDetail(p)">
+                                <td>{{ p.title }}</td>
+                                <td>{{ p.price | currency }}</td>
+                                <td>{{ p.discountPercentage | percent }}</td>
+                                <td>{{ p.stock }}</td>
+                                <td>{{ p.brand }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 

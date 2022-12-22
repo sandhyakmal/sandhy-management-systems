@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/i-product';
-import { ProductModel } from 'src/app/models/product-model';
 import { ProductService } from 'src/app/services/product.service';
 import { ToasterService } from 'src/app/services/toaster.service';
 
