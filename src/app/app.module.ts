@@ -15,10 +15,10 @@ import { ProductFormComponent } from './components/products/product-form/product
 import { ToasterComponent } from './components/toaster/toaster.component';
 import { DataTablesModule } from 'angular-datatables';
 import { UserListComponent } from './pages/user-list/user-list.component';
-import { UsersComponent } from './components/users/users.component';
+import { UserFormComponent } from './components/users/user-form/user-form.component';
  
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, NavBrandComponent, DashboardPageComponent, ProductListComponent, ProductDetailComponent, ProductFormComponent, ToasterComponent, UserListComponent, UsersComponent],
+  declarations: [AppComponent, LoginPageComponent, NavBrandComponent, DashboardPageComponent, ProductListComponent, ProductDetailComponent, ProductFormComponent, ToasterComponent, UserListComponent, UserFormComponent],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule, FormsModule, DataTablesModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,64 @@
+<div class="card">
+    <h5 class="card-header" *ngIf="!user.id">New User</h5>
+    <h5 class="card-header" *ngIf="user.id">Edit User</h5>
+
+    <ul *ngIf="user && isDeleted"  class="list-group list-group-flush">
+        <li class="list-group-item">Anda yakin menghapus Data? <strong>{{ user.firstName }}</strong></li>
+        <li class="list-group-item">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button (click)="onDelete()" class="btn btn-primary">Yes</button>
+                <button (click)="isDeleted = false" class="btn btn-danger">No</button>
+            </div>            
+        </li>
+    </ul>
+
+    <ul *ngIf="user && !isDeleted" class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="mb-3">
+                <label class="form-label">First Name</label>
+                <input [(ngModel)]="user.firstName" type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Last Name</label>
+                <input [(ngModel)]="user.lastName" type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <input [(ngModel)]="user.gender" type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input [(ngModel)]="user.email" type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input [(ngModel)]="user.phone" type="text" class="form-control" />
+            </div>
+        </li>
+        
+        <li (click)="showToggle()" *ngIf="!showMore" class="list-group-item">More ...</li>
+        <li (click)="showToggle()" *ngIf="showMore" class="list-group-item">Hide ...</li>
+
+        <li *ngIf="showMore" class="list-group-item">
+            <div class="mb-3">
+                <label class="form-label">Maiden Name</label>
+                <input  [(ngModel)]="user.maidenName" type="text" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Birth Date</label>
+                <input [(ngModel)]="user.birthDate" type="date" class="form-control" />
+            </div>
+        </li>
+            <ngb-toast *ngIf="showToast" header="Hello" [autohide]="false" (hidden)="showToast">
+                I am a simple static toast with a header.
+            </ngb-toast>
+        <li class="list-group-item">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button (click)="onCreate()" *ngIf="!user.id" class="btn btn-primary">Save</button>
+                <button (click)="onUpdate()" *ngIf="user.id" class="btn btn-info">Edit</button>
+                <button (click)="isDeleted = true" *ngIf="user.id" class="btn btn-danger">Delete</button>
+                <button (click)="cancel()" *ngIf="user.id" class="btn btn-warning">Cancel</button>
+            </div>
+        </li>
+    </ul>
+</div>

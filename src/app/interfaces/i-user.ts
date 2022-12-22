@@ -1,7 +1,7 @@
 export interface IUser {
     id: number;
     firstName: string;
-    middleName?: string;
+    maidenName?: string;
     lastName: string;
     gender: string;
     email: string;
@@ -12,10 +12,8 @@ export interface IUser {
 }
 
 export interface IUserWrapper{
-
     users: Array<IUser>;
     total: number;
     skip: number;
     limit: number;
-
 }

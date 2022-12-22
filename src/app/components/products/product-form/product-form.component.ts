@@ -29,8 +29,8 @@ export class ProductFormComponent implements OnInit {
 
   cancel(){
     this.showMore = false;
-    this.product = {} as IProduct;
-  }
+    this.product = {} as IProduct; 
+  }
 
   onCreate(){
     this.productService.create(this.product)

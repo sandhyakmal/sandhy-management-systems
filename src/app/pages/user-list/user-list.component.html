@@ -1,1 +1,43 @@
-<p>user-list works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <app-user-form [user]="user"></app-user-form>
+        </div>
+
+        <div class="col-md-8">
+            <div *ngIf="users.length === 0" class="card">
+                <h5 class="card-header">Products</h5>
+                <div class="card-body">
+                    <h5 class="card-title"> Users Tidak di Temukan!</h5>
+                    <p class="card-text">Isi dulu data Usur kamu di Form Sebelah </p>
+                </div>
+            </div>
+            <div *ngIf="users.length > 0" class="card">
+                <h5 class="card-header">Users List</h5>
+                <div class="card-body">
+                    <table datatable [dtOptions]="dtOptions" class="table table-striped" >
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gender</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let u of users" (click)="showDetail(u)">
+                                <td>{{ u.firstName }}</td>
+                                <td>{{ u.lastName }}</td>
+                                <td>{{ u.gender }}</td>
+                                <td>{{ u.email }}</td>
+                                <td>{{ u.phone }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
