@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 container-wrapper">
+            <div class="card shadow">
+                <h5 align="center" class="card-header">QR GENERATOR</h5>
+                <div class="card-body">
+                    <qr-code [size]="250" [value]="input"></qr-code>
+                    <div class="form-group">
+                        <label class="form-label">Value: </label>
+                        <input [(ngModel)]="input" class="form-control" type="text"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -16,10 +16,30 @@ import { ToasterComponent } from './components/toaster/toaster.component';
 import { DataTablesModule } from 'angular-datatables';
 import { UserListComponent } from './pages/user-list/user-list.component';
 import { UserFormComponent } from './components/users/user-form/user-form.component';
+import { QRCodeModule } from 'angular2-qrcode';
+import { PageQrgenComponent } from './pages/page-qrgen/page-qrgen.component';
  
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, NavBrandComponent, DashboardPageComponent, ProductListComponent, ProductDetailComponent, ProductFormComponent, ToasterComponent, UserListComponent, UserFormComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule, FormsModule, DataTablesModule, ReactiveFormsModule],
+  declarations: [
+    AppComponent, 
+    LoginPageComponent, 
+    NavBrandComponent, 
+    DashboardPageComponent, 
+    ProductListComponent,
+    ProductDetailComponent,
+    ProductFormComponent, 
+    ToasterComponent, 
+    UserListComponent, 
+    UserFormComponent, PageQrgenComponent],
+  imports: [
+    BrowserModule, 
+    AppRoutingModule, 
+    NgbModule, 
+    HttpClientModule, 
+    FormsModule, 
+    DataTablesModule, 
+    ReactiveFormsModule, 
+    QRCodeModule],
   providers: [],
   bootstrap: [AppComponent],
 })
